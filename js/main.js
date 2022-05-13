@@ -28,4 +28,4 @@ fetch('http://localhost:2345/api', )
       mapElement.innerHTML = '-';
       nameElement.innerHTML = 'Offline';
       wipedElement.innerHTML = '-';
-    })
+    });
