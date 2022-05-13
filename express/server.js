@@ -4,7 +4,6 @@ var cors = require('cors');
 var app = express();
 
 app.use(cors());
-
 app.use(express.static('dist'));
 
 function timeUnitsBetween(startDate, endDate) {
@@ -26,9 +25,7 @@ const getWipedDate = (tagObject) => {
   return time;
 }
 
-app.get('/api',
-  async (req, res, next) => {
-
+app.get('/api', async (req, res, next) => {
     try {
       const query = await Gamedig.query({
         type: 'rust',
@@ -45,13 +42,11 @@ app.get('/api',
       }
 
       res.send(data);
-      //res.send('hi');
     } catch (e) {
       res.send({error: true, message: "Failed to query servers."});
       console.log(e);
     }
-
-  });
+  })
 
 app.listen(2345, () => {
   console.log('express live');
